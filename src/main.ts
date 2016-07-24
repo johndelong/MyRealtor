@@ -5,8 +5,7 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 // core
 import { AUTH_PROVIDERS } from './app/auth';
 import { FIREBASE_APP_PROVIDERS } from './firebase';
-import { TASKS_PROVIDERS } from './app/tasks';
-import { CLIENTS_PROVIDERS }  from './app/clients';
+import { SERVICE_PROVIDERS }  from './app/services';
 
 // routes
 import { ROUTER_PROVIDERS } from './app/routes';
@@ -29,6 +28,5 @@ bootstrap(App, [
   AUTH_PROVIDERS,
   FIREBASE_APP_PROVIDERS,
   ROUTER_PROVIDERS,
-  TASKS_PROVIDERS,
-  CLIENTS_PROVIDERS
+  SERVICE_PROVIDERS
 ]).catch((error: Error) => console.error(error));

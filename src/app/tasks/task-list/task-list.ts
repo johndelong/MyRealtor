@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
-import { ITask } from '../../tasks';
-import { TaskItem } from '../task-item/task-item';
+import { ITask } from '../../models';
+import { TaskItem } from './task-item/task-item';
 
 
 @Component({
@@ -13,21 +13,7 @@ import { TaskItem } from '../task-item/task-item';
   styles: [
     require('./task-list.scss')
   ],
-  template: `
-    <ul class="task-filters">
-      <li><a [class.active]="!filter" [routerLink]="['/tasks']">View All</a></li>
-      <li><a [class.active]="filter === 'false'" [routerLink]="['/tasks', {completed: false}]">Active</a></li>
-      <li><a [class.active]="filter === 'true'" [routerLink]="['/tasks', {completed: true}]">Completed</a></li>
-    </ul>
-    
-    <div class="task-list">
-      <task-item
-        *ngFor="let task of tasks | async"
-        [task]="task"
-        (remove)="remove.emit(task)"
-        (update)="update.emit({task: task, changes: $event})"></task-item>
-    </div>
-  `
+template: require('./task-list.html')
 })
 
 export class TaskList {

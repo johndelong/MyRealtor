@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ITask } from '../../tasks';
-import { Autofocus } from '../../../common';
-
+import { ITask } from '../../../models';
+import { Autofocus } from '../../../../common';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

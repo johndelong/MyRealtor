@@ -4,10 +4,9 @@ import 'rxjs/add/operator/pluck';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { ClientService } from './';
+import { ClientService } from '../services';
 import { ClientForm } from './client-form/client-form.component';
-import { ClientList } from './client-list/client-list';
-
+import { ClientList } from './client-list/client-list.component';
 
 @Component({
   directives: [

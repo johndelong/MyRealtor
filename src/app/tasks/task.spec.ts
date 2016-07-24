@@ -1,5 +1,4 @@
-import { Task } from './task';
-
+import { Task } from '../models';
 
 describe('tasks/', () => {
   describe('Task', () => {

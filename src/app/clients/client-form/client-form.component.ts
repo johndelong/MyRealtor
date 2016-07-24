@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
-import { Client } from '../client';
-
+import { Client } from '../../models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

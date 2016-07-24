@@ -6,17 +6,18 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { AuthService } from '../auth';
-import { IClient, Client } from './client';
-
+import { IClient, Client } from '../models';
 
 @Injectable()
 export class ClientService {
+
   visibleClients$: Observable<IClient[]>;
 
   private filter$: ReplaySubject<any> = new ReplaySubject(1);
   private filteredClients$: FirebaseListObservable<IClient[]>;
   private clients$: FirebaseListObservable<IClient[]>;
 
+  private currentClient: Client;
 
   constructor(af: AngularFire, auth: AuthService) {
     const path = `/clients/${auth.id}`;
@@ -32,6 +33,9 @@ export class ClientService {
       .switchMap(filter => filter === null ? this.clients$ : this.filteredClients$);
   }
 
+  setClient(client: Client): void {
+    this.currentClient = client;
+  }
 
   filterClients(filter: string): void {
     switch (filter) {
