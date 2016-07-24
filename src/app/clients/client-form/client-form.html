@@ -1,0 +1,38 @@
+<form class="task-form" #clientForm="ngForm" (ngSubmit)="submit()" novalidate>
+    <input
+        [(ngModel)]="client.firstName"
+        (keyup.escape)="clear()"
+        autocomplete="off"
+        autofocus
+        class="task-form__input"
+        name="firstName"
+        placeholder="First Name"
+        required
+        type="text">
+    <input
+        [(ngModel)]="client.lastName"
+        (keyup.escape)="clear()"
+        autocomplete="off"
+        autofocus
+        class="task-form__input"
+        name="lastName"
+        placeholder="Last Name"
+        required
+        type="text">
+    <input
+        [(ngModel)]="client.email"
+        (keyup.escape)="clear()"
+        autocomplete="off"
+        autofocus
+        class="task-form__input"
+        name="email"
+        placeholder="Email Address"
+        required
+        type="text">
+
+    <button 
+        type="submit" 
+        [disabled]="!clientForm.form.valid">
+        Create
+    </button>  
+</form>

@@ -1,6 +1,27 @@
-/**
- * @author: @AngularClass
- */
+module.exports = function(config) {
+  config.set({
+    frameworks: ['jasmine'],
 
-// Look in ./config for karma.conf.js
-module.exports = require('./config/karma.conf.js');
+    files: ['karma.entry.js'],
+
+    preprocessors: {
+      'karma.entry.js': ['webpack', 'sourcemap']
+    },
+
+    webpack: require('./webpack.config'),
+
+    webpackServer: {
+      noInfo: true
+    },
+
+    reporters: ['mocha'],
+
+    logLevel: config.LOG_INFO,
+
+    autoWatch: true,
+
+    singleRun: false,
+
+    browsers: ['Chrome']
+  });
+};
