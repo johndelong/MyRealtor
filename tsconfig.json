@@ -9,15 +9,9 @@
   },
   "filesGlob": [
     "./src/**/**/*.ts",
-    "!./node_modules/**",
     "./typings/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ]
-
-  // "files": [
-  //   "typings/index.d.ts"
-  // ]
 }

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
-import { IClient } from '../../models';
+import { IClient, Client } from '../../models';
 import { ClientItem } from './client-item/client-item';
 
 
@@ -20,6 +20,7 @@ export class ClientList {
   @Input() filter: string;
   @Input() clients: FirebaseListObservable<IClient[]>;
 
-//   @Output() remove: EventEmitter<any> = new EventEmitter(false);
+
+  @Output() select: EventEmitter<any> = new EventEmitter(false);
 //   @Output() update: EventEmitter<any> = new EventEmitter(false);
 }

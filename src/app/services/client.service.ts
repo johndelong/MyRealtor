@@ -12,15 +12,14 @@ import { IClient, Client } from '../models';
 export class ClientService {
 
   visibleClients$: Observable<IClient[]>;
+  currentClient: IClient;
 
   private filter$: ReplaySubject<any> = new ReplaySubject(1);
   private filteredClients$: FirebaseListObservable<IClient[]>;
   private clients$: FirebaseListObservable<IClient[]>;
 
-  private currentClient: Client;
-
   constructor(af: AngularFire, auth: AuthService) {
-    const path = `/clients/${auth.id}`;
+    const path = `/clients/${auth.id}`; // clients belonging to this agent
 
     this.clients$ = af.database.list(path);
 

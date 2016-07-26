@@ -1,7 +1,7 @@
 <ul class="task-filters">
-    <li><a [class.active]="!filter" [routerLink]="['/tasks']">View All</a></li>
-    <li><a [class.active]="filter === 'false'" [routerLink]="['/tasks', {completed: false}]">Active</a></li>
-    <li><a [class.active]="filter === 'true'" [routerLink]="['/tasks', {completed: true}]">Completed</a></li>
+    <li><a [class.active]="!filter" [routerLink]="['/checklist']">View All</a></li>
+    <li><a [class.active]="filter === 'false'" [routerLink]="['/checklist', {completed: false}]">Active</a></li>
+    <li><a [class.active]="filter === 'true'" [routerLink]="['/checklist', {completed: true}]">Completed</a></li>
 </ul>
 
 <div class="task-list">

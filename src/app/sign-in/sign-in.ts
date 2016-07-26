@@ -6,9 +6,9 @@ import { AuthService } from '../auth';
 @Component({
   selector: 'sign-in',
   styles: [
-    require('./sign-in.scss')
+    require('./sign-in.scss'),
   ],
-  template: require('./sign-in.html')
+  template: require('./sign-in.html'),
 })
 
 export class SignIn {
@@ -30,6 +30,6 @@ export class SignIn {
   }
 
   private postSignIn(): void {
-    this.router.navigate(['/tasks']);
+    this.router.navigate(['']);
   }
 }

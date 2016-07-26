@@ -5,27 +5,30 @@ import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { AuthService } from '../auth';
-import { ITask, Task } from '../models';
+import { ITask, Task, IClient } from '../models';
 
 
 @Injectable()
 export class TaskService {
   visibleTasks$: Observable<ITask[]>;
+  // client: IClient;
 
   private filter$: ReplaySubject<any> = new ReplaySubject(1);
   private filteredTasks$: FirebaseListObservable<ITask[]>;
   private tasks$: FirebaseListObservable<ITask[]>;
 
+  constructor(private af: AngularFire) {}
 
-  constructor(af: AngularFire, auth: AuthService) {
-    const path = `/tasks/${auth.id}`;
+  getTasksForClient(clientId: string): void {
+    // this.client = client;
 
-    this.tasks$ = af.database.list(path);
+    const path = `/tasks/${clientId}`;
 
-    this.filteredTasks$ = af.database.list(path, {query: {
+    this.tasks$ = this.af.database.list(path);
+
+    this.filteredTasks$ = this.af.database.list(path, {query: {
       orderByChild: 'completed',
-      equalTo: this.filter$
+      equalTo: this.filter$,
     }});
 
     this.visibleTasks$ = this.filter$

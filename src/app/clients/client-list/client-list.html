@@ -6,7 +6,7 @@
 
 <div *ngFor="let client of clients | async">
     {{client.firstName}}
-    <button (click)="open(client)">Open</button>
+    <button (click)="select.emit(client)">Open</button>
 </div>
 <!--
 <div class="client-list">

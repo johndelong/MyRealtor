@@ -5,7 +5,7 @@ import { AuthService } from './auth-service';
 
 
 const fbAuthMethods = [
-  'subscribe'
+  'subscribe',
   // ... etc
 ];
 
@@ -46,8 +46,8 @@ describe('auth/', () => {
         provider: AuthProviders.Github,
         auth: {
           displayName: 'John Doe',
-          providerId: 'github.com'
-        }
+          providerId: 'github.com',
+        },
       } as FirebaseAuthState;
 
       authSubject.next(authData);

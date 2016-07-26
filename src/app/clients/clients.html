@@ -6,6 +6,7 @@
     <div class="g-col">
     <client-list
         [filter]="filter | async"
-        [clients]="clientService.visibleClients$"></client-list>
+        [clients]="clientService.visibleClients$"
+        (select)="open($event)"></client-list>
     </div>
 </div>
